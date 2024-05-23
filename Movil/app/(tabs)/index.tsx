@@ -3,21 +3,25 @@ import { Image, StyleSheet, View } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import FootballMatchesList from '@/components/FootballMatchesList';
 import RotatingBall from '@/components/RotatingBall';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function HomeScreen() {
-
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#0CA80D', dark: '#195E19' }}
       headerImage={
         <View style={styles.headerContainer}>
-          <View style={styles.rotatingBallContainer}>
+          <View style={styles.titleContainer}>
             <RotatingBall />
+            <View>
+              <ThemedText type="title">Predicta</ThemedText>
+              <ThemedText type="title">Goal</ThemedText>
+            </View>
           </View>
         </View>
       }
-      >
-      <FootballMatchesList/>
+    >
+      <FootballMatchesList />
     </ParallaxScrollView>
   );
 }
@@ -38,6 +42,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    padding: 10,
     gap: 8,
   },
   stepContainer: {
